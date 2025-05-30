@@ -1,1 +1,0 @@
-web: gunicorn social_book.wsgi --log-file -

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideoMeet - Professional Video Conferencing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: var(--spacing-2xl) 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: var(--spacing-md);
+      animation: slideUp 0.5s ease;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto var(--spacing-xl);
+      opacity: 0.9;
+      animation: slideUp 0.5s ease 0.2s backwards;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      animation: slideUp 0.5s ease 0.4s backwards;
+    }
+
+    .features {
+      padding: var(--spacing-2xl) 0;
+      background-color: var(--light);
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-xl);
+      color: var(--text);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+      padding: 0 var(--spacing-md);
+    }
+
+    .feature-card {
+      background: white;
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text);
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .testimonials {
+      padding: var(--spacing-2xl) 0;
+      background-color: white;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-xl);
+      color: var(--text);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+      padding: 0 var(--spacing-md);
+    }
+
+    .testimonial-card {
+      background: var(--light);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-full);
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+
+    .author-info h4 {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .author-info p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .cta {
+      padding: var(--spacing-2xl) 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .cta p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto var(--spacing-xl);
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .features h2,
+      .testimonials h2,
+      .cta h2 {
+        font-size: 2rem;
+      }
+
+      .features-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="flex justify-between align-center">
+        <a href="/" class="logo">
+          <i class="fas fa-video"></i>
+          VideoMeet
+        </a>
+        <div class="nav">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="/login" class="btn btn-outline">Login</a>
+          <a href="/signup" class="btn btn-primary">Sign Up</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Professional Video Conferencing Made Simple</h1>
+      <p>Connect with your team, clients, and partners through high-quality video calls. No downloads required.</p>
+      <div class="hero-buttons">
+        <a href="/signup" class="btn btn-primary btn-lg">Get Started Free</a>
+        <a href="#features" class="btn btn-outline btn-lg">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Why Choose VideoMeet?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3>HD Video & Audio</h3>
+          <p>Crystal clear video and audio quality for seamless communication with your team.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Secure Meetings</h3>
+          <p>End-to-end encryption ensures your meetings remain private and secure.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <h3>Screen Sharing</h3>
+          <p>Share your screen with participants to collaborate effectively.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Real-time Chat</h3>
+          <p>Chat with participants during meetings for better collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>What Our Users Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"VideoMeet has transformed how our remote team collaborates. The video quality is exceptional, and the interface is intuitive."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JD</div>
+            <div class="author-info">
+              <h4>John Doe</h4>
+              <p>CEO, TechCorp</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The screen sharing feature is a game-changer for our design team. We can now collaborate in real-time without any lag."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JS</div>
+            <div class="author-info">
+              <h4>Jane Smith</h4>
+              <p>Design Lead, CreativeCo</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"As a teacher, I love how easy it is to set up virtual classrooms. My students can join with just a link, no software needed."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RJ</div>
+            <div class="author-info">
+              <h4>Robert Johnson</h4>
+              <p>High School Teacher</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Join thousands of teams who trust VideoMeet for their video conferencing needs.</p>
+      <div class="cta-buttons">
+        <a href="/signup" class="btn btn-primary btn-lg">Create Free Account</a>
+        <a href="/login" class="btn btn-outline btn-lg">Sign In</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="flex justify-between align-center">
+        <div class="logo">
+          <i class="fas fa-video"></i>
+          VideoMeet
+        </div>
+        <div class="nav">
+          <a href="#" class="nav-link">Privacy Policy</a>
+          <a href="#" class="nav-link">Terms of Service</a>
+          <a href="#" class="nav-link">Contact Us</a>
+        </div>
+      </div>
+      <p class="text-center" style="margin-top: var(--spacing-lg); color: var(--text-light);">
+        © 2024 VideoMeet. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Animate elements when they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    });
+
+    document.querySelectorAll('.feature-card, .testimonial-card').forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Check authentication status on page load
+    document.addEventListener('DOMContentLoaded', async () => {
+      const isAuthenticated = await auth.checkAuth();
+      const loginLink = document.querySelector('a[href="/login"]');
+      const signupLink = document.querySelector('a[href="/signup"]');
+      
+      if (isAuthenticated) {
+        if (loginLink) loginLink.style.display = 'none';
+        if (signupLink) signupLink.style.display = 'none';
+      } else {
+        if (loginLink) loginLink.style.display = 'inline-block';
+        if (signupLink) signupLink.style.display = 'inline-block';
+      }
+    });
+  </script>
+</body>
+</html>

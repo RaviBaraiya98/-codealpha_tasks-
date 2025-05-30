@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - ShopEase</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">ShopEase</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="cart.html" class="cart-link active">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <div class="auth-links">
+            <a href="login.html" class="login-link">Login</a>
+            <a href="register.html" class="register-link">Register</a>
+          </div>
+          <div class="user-menu hidden">
+            <button class="user-menu-btn">
+              <i class="fas fa-user"></i>
+              <span class="username">User</span>
+            </button>
+            <div class="dropdown-menu">
+              <a href="dashboard.html">Dashboard</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cart-section">
+      <div class="container">
+        <h1 class="page-title">Shopping Cart</h1>
+        
+        <div class="cart-container" id="cart-container">
+          <div class="loading">Loading cart...</div>
+        </div>
+        
+        <div class="cart-empty hidden" id="cart-empty">
+          <div class="empty-cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h2>Your cart is empty</h2>
+          <p>Looks like you haven't added any products to your cart yet.</p>
+          <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+        
+        <div class="cart-summary hidden" id="cart-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping:</span>
+            <span id="cart-shipping">$0.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+          <a href="checkout.html" class="btn btn-primary checkout-btn">Proceed to Checkout</a>
+          <a href="products.html" class="btn btn-secondary">Continue Shopping</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ShopEase</h3>
+          <p>Your one-stop shop for all your needs.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@shopease.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopEase. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/cart.js"></script>
+</body>
+</html>

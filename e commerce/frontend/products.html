@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - ShopEase</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">ShopEase</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html" class="active">Products</a>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <div class="auth-links">
+            <a href="login.html" class="login-link">Login</a>
+            <a href="register.html" class="register-link">Register</a>
+          </div>
+          <div class="user-menu hidden">
+            <button class="user-menu-btn">
+              <i class="fas fa-user"></i>
+              <span class="username">User</span>
+            </button>
+            <div class="dropdown-menu">
+              <a href="dashboard.html">Dashboard</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products-section">
+      <div class="container">
+        <h1 class="page-title">Products</h1>
+        
+        <div class="products-layout">
+          <aside class="filters">
+            <h3>Filters</h3>
+            <form id="filter-form">
+              <div class="filter-group">
+                <h4>Categories</h4>
+                <div class="filter-options">
+                  <label>
+                    <input type="radio" name="category" value="all" checked>
+                    All Categories
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="Electronics">
+                    Electronics
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="Clothing">
+                    Clothing
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="Accessories">
+                    Accessories
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="Home">
+                    Home
+                  </label>
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="price-inputs">
+                  <div class="price-input">
+                    <label for="min-price">Min:</label>
+                    <input type="number" id="min-price" name="minPrice" min="0" placeholder="Min">
+                  </div>
+                  <div class="price-input">
+                    <label for="max-price">Max:</label>
+                    <input type="number" id="max-price" name="maxPrice" min="0" placeholder="Max">
+                  </div>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Apply Filters</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </form>
+          </aside>
+          
+          <div class="products-container">
+            <div class="products-header">
+              <div class="products-count">Showing <span id="products-count">0</span> products</div>
+              <div class="sort-options">
+                <label for="sort-by">Sort by:</label>
+                <select id="sort-by">
+                  <option value="default">Default</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="name-asc">Name: A to Z</option>
+                  <option value="name-desc">Name: Z to A</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+              <!-- Products will be loaded here via JavaScript -->
+              <div class="loading">Loading products...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ShopEase</h3>
+          <p>Your one-stop shop for all your needs.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@shopease.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopEase. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/products.js"></script>
+</body>
+</html>

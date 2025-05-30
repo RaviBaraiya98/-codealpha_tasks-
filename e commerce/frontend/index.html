@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEase - E-Commerce Store</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">ShopEase</a>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="products.html">Products</a>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <div class="auth-links">
+            <a href="login.html" class="login-link">Login</a>
+            <a href="register.html" class="register-link">Register</a>
+          </div>
+          <div class="user-menu hidden">
+            <button class="user-menu-btn">
+              <i class="fas fa-user"></i>
+              <span class="username">User</span>
+            </button>
+            <div class="dropdown-menu">
+              <a href="dashboard.html">Dashboard</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Welcome to ShopEase</h1>
+          <p>Discover amazing products at unbeatable prices</p>
+          <a href="products.html" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-products">
+      <div class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid" id="featured-products">
+          <!-- Products will be loaded here via JavaScript -->
+          <div class="loading">Loading products...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="categories-grid">
+          <a href="products.html?category=Electronics" class="category-card">
+            <div class="category-icon"><i class="fas fa-laptop"></i></div>
+            <h3>Electronics</h3>
+          </a>
+          <a href="products.html?category=Clothing" class="category-card">
+            <div class="category-icon"><i class="fas fa-tshirt"></i></div>
+            <h3>Clothing</h3>
+          </a>
+          <a href="products.html?category=Accessories" class="category-card">
+            <div class="category-icon"><i class="fas fa-watch"></i></div>
+            <h3>Accessories</h3>
+          </a>
+          <a href="products.html?category=Home" class="category-card">
+            <div class="category-icon"><i class="fas fa-home"></i></div>
+            <h3>Home</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ShopEase</h3>
+          <p>Your one-stop shop for all your needs.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@shopease.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopEase. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

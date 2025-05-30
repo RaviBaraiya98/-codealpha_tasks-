@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - ShopEase</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">ShopEase</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="cart.html" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <div class="auth-links">
+            <a href="login.html" class="login-link">Login</a>
+            <a href="register.html" class="register-link">Register</a>
+          </div>
+          <div class="user-menu hidden">
+            <button class="user-menu-btn">
+              <i class="fas fa-user"></i>
+              <span class="username">User</span>
+            </button>
+            <div class="dropdown-menu">
+              <a href="dashboard.html" class="active">Dashboard</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="dashboard">
+      <div class="container">
+        <h1 class="page-title">My Dashboard</h1>
+        
+        <div class="dashboard-container">
+          <aside class="dashboard-sidebar">
+            <div class="user-info">
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <h3 id="dashboard-username">User</h3>
+              <p id="dashboard-email">user@example.com</p>
+            </div>
+            
+            <nav class="dashboard-nav">
+              <a href="#" class="active" data-tab="orders">
+                <i class="fas fa-shopping-bag"></i> My Orders
+              </a>
+              <a href="#" data-tab="profile">
+                <i class="fas fa-user-edit"></i> Profile
+              </a>
+              <a href="#" data-tab="admin" class="admin-link hidden">
+                <i class="fas fa-cog"></i> Admin Panel
+              </a>
+            </nav>
+          </aside>
+          
+          <div class="dashboard-content">
+            <!-- Orders Tab -->
+            <div class="dashboard-tab active" id="orders-tab">
+              <h2>My Orders</h2>
+              <div class="orders-container" id="orders-container">
+                <div class="loading">Loading orders...</div>
+              </div>
+              
+              <div class="no-orders hidden" id="no-orders">
+                <div class="empty-orders-icon">
+                  <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h3>No orders yet</h3>
+                <p>You haven't placed any orders yet.</p>
+                <a href="products.html" class="btn btn-primary">Start Shopping</a>
+              </div>
+            </div>
+            
+            <!-- Profile Tab -->
+            <div class="dashboard-tab" id="profile-tab">
+              <h2>My Profile</h2>
+              <form id="profile-form">
+                <div class="form-group">
+                  <label for="profile-name">Name</label>
+                  <input type="text" id="profile-name" name="name" disabled>
+                </div>
+                
+                <div class="form-group">
+                  <label for="profile-email">Email</label>
+                  <input type="email" id="profile-email" name="email" disabled>
+                </div>
+                
+                <p class="profile-note">
+                  <i class="fas fa-info-circle"></i>
+                  Profile editing is disabled in this demo.
+                </p>
+              </form>
+            </div>
+            
+            <!-- Admin Tab -->
+            <div class="dashboard-tab" id="admin-tab">
+              <h2>Admin Panel</h2>
+              
+              <div class="admin-actions">
+                <button id="add-product-btn" class="btn btn-primary">
+                  <i class="fas fa-plus"></i> Add New Product
+                </button>
+              </div>
+              
+              <div class="admin-products">
+                <h3>Manage Products</h3>
+                <div class="admin-products-list" id="admin-products-list">
+                  <div class="loading">Loading products...</div>
+                </div>
+              </div>
+              
+              <div class="admin-orders hidden">
+                <h3>All Orders</h3>
+                <div class="admin-orders-list" id="admin-orders-list">
+                  <div class="loading">Loading orders...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Add Product Modal -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="product-modal-title">Add New Product</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="product-form">
+          <input type="hidden" id="product-id">
+          
+          <div class="form-group">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-price">Price ($)</label>
+            <input type="number" id="product-price" name="price" min="0" step="0.01" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-image">Image URL</label>
+            <input type="url" id="product-image" name="imageUrl" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-category">Category</label>
+            <select id="product-category" name="category" required>
+              <option value="">Select Category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Home">Home</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-stock">Stock</label>
+            <input type="number" id="product-stock" name="stock" min="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-description">Description</label>
+            <textarea id="product-description" name="description" rows="4" required></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Product</button>
+            <button type="button" class="btn btn-secondary cancel-modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Delete Confirmation Modal -->
+  <div class="modal" id="delete-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Confirm Delete</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this product? This action cannot be undone.</p>
+        <div class="form-actions">
+          <button id="confirm-delete" class="btn btn-danger">Delete</button>
+          <button class="btn btn-secondary cancel-modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ShopEase</h3>
+          <p>Your one-stop shop for all your needs.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@shopease.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopEase. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
